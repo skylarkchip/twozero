@@ -5,7 +5,7 @@ import { cleanAndTransformBlocks } from "@/utils/cleanAndTransformBlocks";
 
 export default Page;
 
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   const uri = context.params?.slug ? `/${context.params.slug.join("/")}/` : "/";
   const { data } = await client.query({
     query: gql`
@@ -30,6 +30,5 @@ export const getStaticProps = async (context) => {
     props: {
       blocks,
     },
-    revalidate: 5,
   };
 };
