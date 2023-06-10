@@ -5,10 +5,7 @@ const nextConfig = {
     domains: ["two-zero.local", "admin.twozerocreatives.com"],
   },
   env: {
-    // host:
-    //   process.env.NODE_ENV === "production"
-    //     ? process.env.PROD_HOST
-    //     : process.env.DEV_HOST,
+    host: process.env.NEXT_PUBLIC_WP_URL,
   },
 };
 
