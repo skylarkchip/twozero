@@ -5,10 +5,10 @@ const nextConfig = {
     domains: ["two-zero.local", "admin.twozerocreatives.com"],
   },
   env: {
-    host:
-      process.env.NODE_ENV === "development"
-        ? process.env.DEV_HOST
-        : process.env.PROD_HOST,
+    // host:
+    //   process.env.NODE_ENV === "production"
+    //     ? process.env.PROD_HOST
+    //     : process.env.DEV_HOST,
   },
 };
 
