@@ -2,11 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [
-      process.env.NODE_ENV === "development"
-        ? process.env.WP_IMAGES_DEV_URL
-        : process.env.WP_IMAGES_PROD_URL,
-    ],
+    domains: ["two-zero.local", "admin.twozerocreatives.com"],
   },
   env: {
     host:
