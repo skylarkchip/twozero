@@ -1,3 +1,4 @@
+import * as gtag from "../lib/gtag";
 import "@/styles/globals.css";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 
@@ -11,6 +12,8 @@ import "@fontsource/barlow/600.css";
 import "@fontsource/barlow/700.css";
 import "@fontsource/barlow/800.css";
 import "@fontsource/barlow/900.css";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const theme = extendTheme({
   fonts: {
@@ -23,6 +26,19 @@ const theme = extendTheme({
 });
 
 export default function App({ Component, pageProps }) {
+  const router = useRouter();
+  useEffect(() => {
+    router.events.on("routeChangeComplete", (url) => {
+      gtag.pageview(url);
+    });
+
+    return () => {
+      router.events.on("routeChangeComplete", (url) => {
+        gtag.pageview(url);
+      });
+    };
+  }, [router.events]);
+
   return (
     <ChakraProvider theme={theme}>
       <Component {...pageProps} />

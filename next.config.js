@@ -6,6 +6,7 @@ const nextConfig = {
   },
   env: {
     host: process.env.NEXT_PUBLIC_WP_URL,
+    gtag: process.env.GA_MEASUREMENT_ID,
   },
 };
 
